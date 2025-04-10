@@ -40,6 +40,7 @@ import FeedingInfo from './pages/FeedingInformation';
 import BabyPostNatalCare from './pages/BabyPostNatalCare';
 import SpecialCare from './pages/SpecialCare';
 import RotaVirusVaccineForm from './pages/RotaVirusVaccine';
+import ChildCivilRegistration from './pages/ChildCivilRegistration';
 
 const appRoutes = [
   {
@@ -194,6 +195,10 @@ const appRoutes = [
   {
     path: '/rota-virus-vaccine',
     element: RotaVirusVaccineForm,
+  },
+  {
+    path: '/child-civil-registration',
+    element: ChildCivilRegistration,
   },
   {
     path: '/micronutrient-powders',
