@@ -163,29 +163,9 @@ const appRoutes = [
     path: '/nurse-dashboard',
     element: NurseDashboard,
   },
-  {  
-    path: '/reproductive-organs-cancer-screening',
-    element: CancerScreening,
-  },
   {
-    path: '/family-planning',
-    element: FamilyPlanning,
-  },
-  {
-    path: '/developmental-milestones',
-    element: DevelopmentalMilestones,
-  },
-  {
-    path: '/diptheria-vaccine',
-    element: DiphtheriaVaccination,
-  },
-  {
-    path: '/other-baby-problems',
-    element: OtherProblems,
-  },
-  {
-    path: '/broad-clinical-review',
-    element: BroadClinicalReview,
+    path: '/reason-for-special-care',
+    element: ReasonForSpecialCare,
   },
   {
     path: '/mother-postnatal-care',
@@ -219,6 +199,10 @@ const appRoutes = [
   {
     path: '/child-civil-registration',
     element: ChildCivilRegistration,
+  },
+  {
+    path: '/micronutrient-powders',
+    element: MicronutrientPowders,
   }
 ];
 
