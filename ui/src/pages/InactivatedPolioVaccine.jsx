@@ -34,10 +34,11 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import Preview from "../components/Preview";
 import FormFields from "../components/FormFields";
-import inactivatedPolioVaccineFormFields from "../lib/forms/inactivatedPolioVaccine";
+  import inactivatedPolioVaccineFormFields from "../lib/forms/inactivatedPolioVaccineFormFields";
 
 
-export default function InactivatedPolioVaccine() {
+//new version
+export default function InactivatedPolioVaccine({userData}) {
   let [visit, setVisit] = useState();
   let navigate = useNavigate();
   let [open, setOpen] = useState(false);
@@ -45,8 +46,8 @@ export default function InactivatedPolioVaccine() {
   let [message, setMessage] = useState(false);
   let [observations, setObservations] = useState([]);
   let isMobile = useMediaQuery("(max-width:600px)");
-  let [tetanusDiptheria, setTetanusDiptheria] = useState({});
-  let [tetanusDiptheriaEncounters, setInactivatedPolioVaccineEncounters] = useState(
+  let [inactivatedPolioVaccine, setinactIvatedPolioVaccine] = useState({});
+  let [inactivatedPolioVaccineEncounters, setInactivatedPolioVaccineEncounters] = useState(
     []
   );
   const handleClose = () => setOpenModal(false);
@@ -241,8 +242,8 @@ export default function InactivatedPolioVaccine() {
                 <TabPanel value="1">
                   {/* <p></p> */}
                   <Grid container spacing={1} padding=".5em">
-                    {tetanusDiptheriaEncounters.length > 0 &&
-                      tetanusDiptheriaEncounters.map((x, index) => {
+                    {inactivatedPolioVaccineEncounters.length > 0 &&
+                      inactivatedPolioVaccineEncounters.map((x, index) => {
                         return (
                           <Grid item xs={12} md={12} lg={3}>
                             <Button
@@ -258,7 +259,7 @@ export default function InactivatedPolioVaccine() {
                         );
                       })}
                   </Grid>
-                  {tetanusDiptheriaEncounters.length < 1 && loading && (
+                  {inactivatedPolioVaccineEncounters.length < 1 && loading && (
                     <>
                       <CircularProgress />
                     </>
@@ -267,7 +268,7 @@ export default function InactivatedPolioVaccine() {
 
                   <FormFields formData={inactivatedPolioVaccineFormFields} formik={formik} />
 
-                  
+
                   <p></p>
                   <Divider />
                   <p></p>

@@ -1,6 +1,8 @@
 import * as yup from 'yup'; 
 
+
 const inactivatedPolioVaccineFormFields = {
+  //new version
   'IPV (0.5mls) Dose at 14 weeks Intramuscular into the outer aspect of the right thigh 2.5cm (2 fingers apart) from the site of PCV10 injection':
    [
     {
@@ -76,7 +78,7 @@ const inactivatedPolioVaccineFormFields = {
         },
       },
   ],
-  
+
 };
 
 // Export the forms as named exports
