@@ -1,6 +1,5 @@
 import {
   Container,
-  TextField,
   Stack,
   Button,
   Grid,
@@ -13,21 +12,13 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Layout from "../components/Layout";
-import { getCookie } from "../lib/cookie";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { Box } from "@mui/material";
-import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
-import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormLabel from "@mui/material/FormLabel";
 import CurrentPatient from "../components/CurrentPatient";
 import { apiHost, createEncounter, FhirApi } from "../lib/api";
 import { useFormik } from "formik";
@@ -46,7 +37,6 @@ export default function InactivatedPolioVaccine({userData}) {
   let [message, setMessage] = useState(false);
   let [observations, setObservations] = useState([]);
   let isMobile = useMediaQuery("(max-width:600px)");
-  let [inactivatedPolioVaccine, setinactIvatedPolioVaccine] = useState({});
   let [inactivatedPolioVaccineEncounters, setInactivatedPolioVaccineEncounters] = useState(
     []
   );
