@@ -2,7 +2,6 @@ import * as yup from 'yup';
 
 
 const inactivatedPolioVaccineFormFields = {
-  //new version
   'IPV (0.5mls) Dose at 14 weeks Intramuscular into the outer aspect of the right thigh 2.5cm (2 fingers apart) from the site of PCV10 injection':
    [
     {
@@ -60,16 +59,16 @@ const inactivatedPolioVaccineFormFields = {
         validate: yup.string().required("Manufacturer is required"),
         width: {
           xs: 12,
-          sm: 12,
+         
           md: 12,
           lg: 6,
         },
       },
       {
-        name: 'expiaryDate',
-        label: 'Date of Expiary (DD/MM/YY)',
+        name: 'expiryDate',
+        label: 'Date of expiry (DD/MM/YY)',
         type: 'date',
-        validate: yup.date().required("The Expiary Date is required"),
+        validate: yup.date().required("The expiry Date is required"),
         width: {
           xs: 12,
           sm: 12,
@@ -81,5 +80,5 @@ const inactivatedPolioVaccineFormFields = {
 
 };
 
-// Export the forms as named exports
+
 export default inactivatedPolioVaccineFormFields;

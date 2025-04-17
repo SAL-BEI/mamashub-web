@@ -222,7 +222,7 @@ const appRoutes = [
     path: '/child-civil-registration',
     element: ChildCivilRegistration,
   },
-  //new version
+
   {
     path: '/ipv',
     element: inactivatedPolioVaccine,

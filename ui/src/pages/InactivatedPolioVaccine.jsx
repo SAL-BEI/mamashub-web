@@ -37,7 +37,7 @@ import FormFields from "../components/FormFields";
   import inactivatedPolioVaccineFormFields from "../lib/forms/inactivatedPolioVaccineFormFields";
 
 
-//new version
+
 export default function InactivatedPolioVaccine({userData}) {
   let [visit, setVisit] = useState();
   let navigate = useNavigate();
@@ -79,7 +79,7 @@ export default function InactivatedPolioVaccine({userData}) {
       ...initialValues,
     },
     validationSchema: validationSchema,
-    // submit form
+
     onSubmit: (values) => {
     
       setPreview(true);
@@ -161,7 +161,7 @@ export default function InactivatedPolioVaccine({userData}) {
     return;
   };
   let saveInactivatedPolioVaccine = async (values) => {
-    //get current patient
+  
     if (!visit) {
       prompt(
         "No patient visit not been initiated. To start a visit, Select a patient in the Patient's list"
@@ -170,11 +170,11 @@ export default function InactivatedPolioVaccine({userData}) {
     }
     let patient = visit.id;
     try {
-      //create Encounter
+  
       let encounter = await createEncounter(patient, "INACTIVATED_POLIO_VACCINE");
     
 
-      //Create and Post Observations
+    
       let res = await (
         await fetch(`${apiHost}/crud/observations`, {
           method: "POST",
@@ -190,7 +190,7 @@ export default function InactivatedPolioVaccine({userData}) {
 
       if (res.status === "success") {
         prompt("Inactivated Polio Vaccine Saved Successfully");
-        // setValue('2')
+      
         navigate(`/patients/${patient}`);
         await getInactivatedPolioVaccineEncounters(patient);
         return;
@@ -212,7 +212,7 @@ export default function InactivatedPolioVaccine({userData}) {
           <Snackbar
             anchorOrigin={{ vertical: "top", horizontal: "center" }}
             open={open}
-            // onClose={""}
+           
             message={message}
             key={"loginAlert"}
           />
