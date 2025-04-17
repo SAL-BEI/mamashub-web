@@ -40,8 +40,12 @@ import FeedingInfo from './pages/FeedingInformation';
 import BabyPostNatalCare from './pages/BabyPostNatalCare';
 import SpecialCare from './pages/SpecialCare';
 import RotaVirusVaccineForm from './pages/RotaVirusVaccine';
+
 import ChildCivilRegistration from './pages/Childcivilregistration';
 import inactivatedPolioVaccine  from './pages/InactivatedPolioVaccine';
+
+import ChildCivilRegistration from './pages/ChildCivilRegistration';
+
 
 const appRoutes = [
   {
@@ -164,31 +168,37 @@ const appRoutes = [
     path: '/nurse-dashboard',
     element: NurseDashboard,
   },
-  {  
-    path: '/reproductive-organs-cancer-screening',
-    element: CancerScreening,
+  {
+    path: '/reason-for-special-care',
+    element: ReasonForSpecialCare,
   },
   {
-    path: '/family-planning',
-    element: FamilyPlanning,
+    path: '/mother-postnatal-care',
+    element: MotherPostnatalCare,
+  },
+
+  {
+    path: '/baby-teeth-development',
+    element: RecordOfBabyTeethDevelopment,
   },
   {
-    path: '/developmental-milestones',
-    element: DevelopmentalMilestones,
+    path: '/feeding-information',
+    element: FeedingInfo,
   },
   {
-    path: '/diptheria-vaccine',
-    element: DiphtheriaVaccination,
+    path: '/any-adverse-event',
+    element: AEFI
   },
   {
-    path: '/other-baby-problems',
-    element: OtherProblems,
+    path: '/baby-postnatal-care',
+    element: BabyPostNatalCare,
+  }, 
+  {
+    path: '/reason-for-special-care',
+    element: SpecialCare ,
   },
   {
-    path: '/broad-clinical-review',
-    element: BroadClinicalReview,
-  },
-  {
+
     path: '/mother-postnatal-care',
     element: MotherPostnatalCare,
   },
@@ -218,15 +228,22 @@ const appRoutes = [
     element: RotaVirusVaccineForm,
   },
   
+
+    path: '/rota-virus-vaccine',
+    element: RotaVirusVaccineForm,
+  },
   {
     path: '/child-civil-registration',
     element: ChildCivilRegistration,
   },
-  //new version
   {
     path: '/ipv',
     element: inactivatedPolioVaccine,
   },
+  {
+    path: '/micronutrient-powders',
+    element: MicronutrientPowders,
+  }
 ];
 
 export default appRoutes;
