@@ -81,7 +81,7 @@ export default function InactivatedPolioVaccine({userData}) {
     validationSchema: validationSchema,
     // submit form
     onSubmit: (values) => {
-      console.log(values);
+    
       setPreview(true);
       setInputData(values);
     },
@@ -155,7 +155,7 @@ export default function InactivatedPolioVaccine({userData}) {
         url: `/crud/encounters?patient=${patientId}&encounterCode=${"INACTIVATED_POLIO_VACCINE"}`,
       })
     ).data;
-    console.log(encounters);
+   
     setInactivatedPolioVaccineEncounters(encounters.encounters);
     setLoading(false);
     return;
@@ -172,7 +172,7 @@ export default function InactivatedPolioVaccine({userData}) {
     try {
       //create Encounter
       let encounter = await createEncounter(patient, "INACTIVATED_POLIO_VACCINE");
-      // console.log(encounter)
+    
 
       //Create and Post Observations
       let res = await (
@@ -186,7 +186,7 @@ export default function InactivatedPolioVaccine({userData}) {
           headers: { "Content-Type": "application/json" },
         })
       ).json();
-      console.log(res);
+    
 
       if (res.status === "success") {
         prompt("Inactivated Polio Vaccine Saved Successfully");
