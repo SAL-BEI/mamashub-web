@@ -89,12 +89,12 @@ export default function InactivatedPolioVaccine({userData}) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
   useEffect(() => {
-    let visit = window.localStorage.getItem("currentPatient");
-    if (!visit) {
+    const storedVisit = window.localStorage.getItem("currentPatient");
+  
+    if (!storedVisit) {
       setMessage(
-        "No patient visit not been initiated. To start a visit, Select a patient in the Patients list"
+        "No patient visit has been initiated. To start a visit, select a patient in the Patients list"
       );
       setOpen(true);
       setTimeout(() => {
@@ -102,29 +102,12 @@ export default function InactivatedPolioVaccine({userData}) {
       }, 4000);
       return;
     }
-    setVisit(JSON.parse(visit));
-    return;
+  
+    const parsedVisit = JSON.parse(storedVisit);
+    setVisit(parsedVisit);
+    getInactivatedPolioVaccineEncounters(parsedVisit.id);
   }, []);
-
-  useEffect(() => {
-    let visit = window.localStorage.getItem("currentPatient");
-    if (!visit) {
-      prompt(
-        "No patient visit not been initiated. To start a visit, Select a patient in the Patients list"
-      );
-      return;
-    }
-    setVisit(JSON.parse(visit));
-    return;
-  }, []);
-
-  useEffect(() => {
-    let visit = window.localStorage.getItem("currentPatient") ?? null;
-    visit = JSON.parse(visit) ?? null;
-    if (visit) {
-      getInactivatedPolioVaccineEncounters(visit.id);
-    }
-  }, []);
+  
 
   let getEncounterObservations = async (encounter) => {
     setObservations([]);
