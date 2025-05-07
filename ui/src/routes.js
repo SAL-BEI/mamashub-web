@@ -183,9 +183,7 @@ const appRoutes = [
   {
     path: "/other-baby-problems",
     element: OtherProblems,
-  },
-
-  
+  },  
   {
     path: "/broad-clinical-review",
     element: BroadClinicalReview,
