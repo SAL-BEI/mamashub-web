@@ -41,6 +41,9 @@ import BabyPostNatalCare from './pages/BabyPostNatalCare';
 import SpecialCare from './pages/SpecialCare';
 import RotaVirusVaccineForm from './pages/RotaVirusVaccine';
 import ChildCivilRegistration from './pages/ChildCivilRegistration';
+import MicronutrientPowders from './pages/MicronutrientPowders';
+import PolioVaccination from './pages/PolioVaccine';
+import PneumococalConjugateVaccination from './pages/PneumococalConjugateVaccine';
 
 const appRoutes = [
   {
@@ -164,8 +167,30 @@ const appRoutes = [
     element: NurseDashboard,
   },
   {
-    path: '/reason-for-special-care',
-    element: ReasonForSpecialCare,
+    path: '/reproductive-organs-cancer-screening',
+    element: CancerScreening,
+  },
+  {
+    path: '/family-planning',
+    element: FamilyPlanning,
+  },
+  {
+    path: "/developmental-milestones",
+    element: DevelopmentalMilestones,
+  },
+  {
+    path: "/diptheria-vaccine",
+    element: DiphtheriaVaccination,
+  },
+  {
+    path: "/other-baby-problems",
+    element: OtherProblems,
+  },
+
+  
+  {
+    path: "/broad-clinical-review",
+    element: BroadClinicalReview,
   },
   {
     path: '/mother-postnatal-care',
