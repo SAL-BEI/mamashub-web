@@ -66,7 +66,7 @@ const inactivatedPolioVaccineFormFields = {
         },
       },
       {
-        name: 'expiaryDate',
+        name: 'expiryDate',
         label: 'Date of Expiary (DD/MM/YY)',
         type: 'date',
         validate: yup.date().required("The Expiary Date is required"),
