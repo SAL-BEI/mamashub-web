@@ -40,12 +40,12 @@ import FeedingInfo from './pages/FeedingInformation';
 import BabyPostNatalCare from './pages/BabyPostNatalCare';
 import SpecialCare from './pages/SpecialCare';
 import RotaVirusVaccineForm from './pages/RotaVirusVaccine';
-
-import ChildCivilRegistration from './pages/Childcivilregistration';
-import inactivatedPolioVaccine  from './pages/InactivatedPolioVaccine';
-
 import ChildCivilRegistration from './pages/ChildCivilRegistration';
-
+import MicronutrientPowders from './pages/MicronutrientPowders';
+import PolioVaccination from './pages/PolioVaccine';
+import PneumococalConjugateVaccination from './pages/PneumococalConjugateVaccine';
+import MeasleRubellaVaccination from './pages/MeaslesRubellaVaccine';
+import YellowFeverVaccination from './pages/YellowFever';
 
 const appRoutes = [
   {
@@ -169,8 +169,28 @@ const appRoutes = [
     element: NurseDashboard,
   },
   {
-    path: '/reason-for-special-care',
-    element: ReasonForSpecialCare,
+    path: '/reproductive-organs-cancer-screening',
+    element: CancerScreening,
+  },
+  {
+    path: '/family-planning',
+    element: FamilyPlanning,
+  },
+  {
+    path: "/developmental-milestones",
+    element: DevelopmentalMilestones,
+  },
+  {
+    path: "/diptheria-vaccine",
+    element: DiphtheriaVaccination,
+  },
+  {
+    path: "/other-baby-problems",
+    element: OtherProblems,
+  },  
+  {
+    path: "/broad-clinical-review",
+    element: BroadClinicalReview,
   },
   {
     path: '/mother-postnatal-care',
@@ -198,37 +218,6 @@ const appRoutes = [
     element: SpecialCare ,
   },
   {
-
-    path: '/mother-postnatal-care',
-    element: MotherPostnatalCare,
-  },
-
-  {
-    path: '/baby-teeth-development',
-    element: RecordOfBabyTeethDevelopment,
-  },
-  {
-    path: '/feeding-information',
-    element: FeedingInfo,
-  },
-  {
-    path: '/any-adverse-event',
-    element: AEFI
-  },
-  {
-    path: '/baby-postnatal-care',
-    element: BabyPostNatalCare,
-  }, 
-  {
-    path: '/reason-for-special-care',
-    element: SpecialCare ,
-  },
-  {
-    path: '/rota-virus-vaccine',
-    element: RotaVirusVaccineForm,
-  },
-  
-
     path: '/rota-virus-vaccine',
     element: RotaVirusVaccineForm,
   },
@@ -237,13 +226,30 @@ const appRoutes = [
     element: ChildCivilRegistration,
   },
   {
-    path: '/ipv',
-    element: inactivatedPolioVaccine,
-  },
-  {
     path: '/micronutrient-powders',
     element: MicronutrientPowders,
+  },
+  {
+    path: "/polio-vaccine",
+    element: PolioVaccination
+  },
+  {
+    path: "/pneumococcal-conjugate-vaccine",
+    element: PneumococalConjugateVaccination,
+  },
+  {
+    path: '/measles-rubella-vaccine',
+    element: MeasleRubellaVaccination,
+  },
+  {
+    path: '/yellow-fever-vaccine',
+    element: YellowFeverVaccination,
+  },
+  {
+    path: '/ipv',
+    element: inactivatedPolioVaccine,
   }
+  
 ];
 
 export default appRoutes;
