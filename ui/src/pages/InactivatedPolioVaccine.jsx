@@ -96,7 +96,7 @@ export default function InactivatedPolioVaccine({userData}) {
     return;
   }
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (newValue) => {
     setValue(newValue);
   };
 
@@ -104,7 +104,7 @@ export default function InactivatedPolioVaccine({userData}) {
     let visit = window.localStorage.getItem("currentPatient");
     if (!visit) {
       setMessage(
-        "No patient visit not been initiated. To start a visit, Select a patient in the Patients list"
+        "No patient visit has been initiated. To start a visit, Select a patient in the Patients list"
       );
       setOpen(true);
       setTimeout(() => {
@@ -112,28 +112,9 @@ export default function InactivatedPolioVaccine({userData}) {
       }, 4000);
       return;
     }
-    setVisit(JSON.parse(visit));
-    return;
-  }, []);
-
-  useEffect(() => {
-    let visit = window.localStorage.getItem("currentPatient");
-    if (!visit) {
-      prompt(
-        "No patient visit not been initiated. To start a visit, Select a patient in the Patients list"
-      );
-      return;
-    }
-    setVisit(JSON.parse(visit));
-    return;
-  }, []);
-
-  useEffect(() => {
-    let visit = window.localStorage.getItem("currentPatient") ?? null;
-    visit = JSON.parse(visit) ?? null;
-    if (visit) {
-      getInactivatedPolioVaccineEncounters(visit.id);
-    }
+    visit = JSON.parse(visit);
+    setVisit(visit);
+    getInactivatedPolioVaccineEncounters(visit.id);
   }, []);
 
   let getEncounterObservations = async (encounter) => {
@@ -155,26 +136,21 @@ export default function InactivatedPolioVaccine({userData}) {
         url: `/crud/encounters?patient=${patientId}&encounterCode=${"INACTIVATED_POLIO_VACCINE"}`,
       })
     ).data;
-    console.log(encounters);
     setInactivatedPolioVaccineEncounters(encounters.encounters);
     setLoading(false);
     return;
   };
   let saveInactivatedPolioVaccine = async (values) => {
-    //get current patient
     if (!visit) {
       prompt(
-        "No patient visit not been initiated. To start a visit, Select a patient in the Patient's list"
+        "No patient visit has been initiated. To start a visit, Select a patient in the Patient's list"
       );
       return;
     }
     let patient = visit.id;
     try {
-      //create Encounter
       let encounter = await createEncounter(patient, "INACTIVATED_POLIO_VACCINE");
-      // console.log(encounter)
 
-      //Create and Post Observations
       let res = await (
         await fetch(`${apiHost}/crud/observations`, {
           method: "POST",
@@ -186,11 +162,9 @@ export default function InactivatedPolioVaccine({userData}) {
           headers: { "Content-Type": "application/json" },
         })
       ).json();
-      console.log(res);
 
       if (res.status === "success") {
         prompt("Inactivated Polio Vaccine Saved Successfully");
-        // setValue('2')
         navigate(`/patients/${patient}`);
         await getInactivatedPolioVaccineEncounters(patient);
         return;
@@ -199,7 +173,6 @@ export default function InactivatedPolioVaccine({userData}) {
         return;
       }
     } catch (error) {
-      console.error(error);
       prompt(JSON.stringify(error));
       return;
     }
@@ -212,7 +185,6 @@ export default function InactivatedPolioVaccine({userData}) {
           <Snackbar
             anchorOrigin={{ vertical: "top", horizontal: "center" }}
             open={open}
-            // onClose={""}
             message={message}
             key={"loginAlert"}
           />
@@ -236,7 +208,7 @@ export default function InactivatedPolioVaccine({userData}) {
                     scrollButtons="auto"
                     aria-label="scrollable auto tabs example"
                   >
-                    <Tab label="Tetanus & Diptheria" value="1" />
+                    <Tab label="Inactivated Polio Vaccine" value="1" />
                   </TabList>
                 </Box>
                 <TabPanel value="1">
